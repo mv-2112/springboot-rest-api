@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: springboot-rest-api
-          image: verranm/rest-api
+          image: verranm/rest-api:testing
           ports:
             - containerPort: 9090
               name: "http"
