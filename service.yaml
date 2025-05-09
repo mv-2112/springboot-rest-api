@@ -7,3 +7,4 @@ spec:
     app: springboot-rest-api
   ports:
     - port: 9090
+  type: LoadBalancer
