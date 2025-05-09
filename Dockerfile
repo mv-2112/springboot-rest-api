@@ -1,7 +1,7 @@
 FROM eclipse-temurin:21-noble
 WORKDIR /usr/src/app
-#COPY package*.json ./
+COPY /harness/target/rest-api-0.0.1-SNAPSHOT.jar ./
 #RUN npm install
 #COPY . .
-#EXPOSE 8080
-#CMD ["npm", "run", "seed", "&&", "npm", "run", "start"]
+EXPOSE 9090
+CMD ["java", "-jar", "rest-api-0.0.1-SNAPSHOT.jar"]
