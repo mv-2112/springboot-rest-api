@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-rest-api
+spec:
+  selector:
+    matchLabels:
+      app: springboot-rest-api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: springboot-rest-api
+    spec:
+      containers:
+        - name: springboot-rest-api
+          image: verranm/rest-api
+          ports:
+            - containerPort: 9090
+              name: "http"
+          resources:
+            limits:
+              memory: 2Gi
+              cpu: "1"
