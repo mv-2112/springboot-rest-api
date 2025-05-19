@@ -24,9 +24,12 @@ spec:
             - containerPort: 9090
               name: "http"
           resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
             limits:
-              memory: 2Gi
-              cpu: "2"
+              memory: "2Gi"
+              cpu: "1000m"
       readinessProbe:
         failureThreshold: 3
         httpGet:
