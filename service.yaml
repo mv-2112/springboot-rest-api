@@ -35,7 +35,7 @@ spec:
   rules:
   - matches:
     - path:
-        type: Exact
+        type: PathPrefix
         value: /springboot-rest-api
     backendRefs:
     - name: springboot-rest-api
