@@ -36,7 +36,7 @@ spec:
   - matches:
     - path:
         type: Exact
-        value: /api/book
+        value: /springboot-rest-api
     backendRefs:
     - name: springboot-rest-api
       port: 9090          
