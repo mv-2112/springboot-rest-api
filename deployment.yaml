@@ -22,7 +22,7 @@ spec:
           # image: verranm/rest-api:testing
           image: gcr.io/kuar-demo/kuard-amd64:blue
           ports:
-            - containerPort: 9090
+            - containerPort: 8080
               name: "http"
           resources:
             requests:
@@ -31,14 +31,5 @@ spec:
             limits:
               memory: "2Gi"
               cpu: "1000m"
-          readinessProbe:
-            failureThreshold: 3
-            httpGet:
-              path: /api/books
-              port: 9090
-              scheme: HTTP
-            initialDelaySeconds: 5
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 1
+
 
