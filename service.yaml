@@ -42,7 +42,7 @@ spec:
   http:
   - match:
     - uri:
-        exact: /springboot-rest-api
+        regex: "*/springboot-rest-api*"
     route:
     - destination:
         host: "springboot-rest-api-svc"
