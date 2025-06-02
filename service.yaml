@@ -45,7 +45,7 @@ spec:
       urlRewrite:
         path:
           type: ReplacePrefixMatch
-          replaceFullPath: /
+          replacePrefixMatch: /
     backendRefs:
     - name: springboot-rest-api-svc
       port: 8080
