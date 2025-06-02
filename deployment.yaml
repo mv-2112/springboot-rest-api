@@ -19,10 +19,10 @@ spec:
     spec:
       containers:
         - name: springboot-rest-api
-          # image: verranm/rest-api:testing
-          image: gcr.io/kuar-demo/kuard-amd64:blue
+          image: verranm/rest-api:testing
+          # image: gcr.io/kuar-demo/kuard-amd64:blue
           ports:
-            - containerPort: 8080
+            - containerPort: 9090
               name: "http"
           resources:
             requests:
