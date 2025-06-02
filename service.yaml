@@ -44,7 +44,7 @@ spec:
     - type: URLRewrite
       urlRewrite:
         path:
-          type: ReplaceFullPath
+          type: ReplacePrefixMatch
           replaceFullPath: /
     backendRefs:
     - name: springboot-rest-api-svc
