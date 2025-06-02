@@ -2,7 +2,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: springboot-rest-api
+  name: springboot-rest-api-svc
+  namespace: applications
 spec:
   selector:
     app: springboot-rest-api
@@ -15,6 +16,7 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: springboot-rest-api-gateway
+  namespace: applications
 spec:
   gatewayClassName: istio
   listeners:
@@ -25,18 +27,21 @@ spec:
       namespaces:
         from: Same
 ---
-apiVersion: gateway.networking.k8s.io/v1
-kind: HTTPRoute
+apiVersion: networking.istio.io/v1
+kind: VirtualService
 metadata:
-  name: springboot-rest-api
+  name: springboot-rest-api-vs
+  namespace: applications
 spec:
-  parentRefs:
-  - name: springboot-rest-api-gateway
-  rules:
-  - matches:
-    - path:
-        type: PathPrefix
-        value: /springboot-rest-api
-    backendRefs:
-    - name: springboot-rest-api
-      port: 9090          
+  hosts:
+  - springboot-rest-api.applications.svc.cluster.local
+  gateways:
+  - applications/springboot-rest-api-gateway 
+  tcp:
+  - match:
+    - port: 9090
+    route:
+    - destination:
+        host: springboot-rest-api.applications.svc.cluster.local
+        port:
+          number: 9090       
