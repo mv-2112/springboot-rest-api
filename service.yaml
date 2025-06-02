@@ -8,7 +8,7 @@ spec:
   selector:
     app: springboot-rest-api
   ports:
-    - port: 9090
+    - port: 8080
       name: http-springboot-rest-api
   type: LoadBalancer
 ---
@@ -21,7 +21,7 @@ spec:
   gatewayClassName: istio
   listeners:
   - name: http
-    port: 9090
+    port: 8080
     protocol: HTTP
     allowedRoutes:
       namespaces:
@@ -42,4 +42,4 @@ spec:
         value: /springboot-rest-api
     backendRefs:
     - name: springboot-rest-api-svc
-      port: 9090
+      port: 8080
