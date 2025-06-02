@@ -39,7 +39,7 @@ spec:
   - matches:
     - path:
         type: PathPrefix
-        value: /api/book
+        value: /springboot-rest-api
     backendRefs:
     - name: springboot-rest-api-svc
       port: 9090
