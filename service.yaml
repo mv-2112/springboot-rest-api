@@ -40,6 +40,6 @@ spec:
     - path:
         type: PathPrefix
         value: /api/book
-  backendRefs:
-  - name: springboot-rest-api-svc
-    port: 9090
+    backendRefs:
+    - name: springboot-rest-api-svc
+      port: 9090
